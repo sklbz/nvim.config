@@ -1,0 +1,41 @@
+-- Importing necessary modules
+-- local floating = require("plenary").window.float
+-- local border = require("plenary").window.border.draw_border
+
+-- return function()
+	-- Define the content of the floating window
+-- 	local content = {
+-- 		"This is a floating window!",
+-- 		"You can add any content here.",
+-- 		"Feel free to customize it as needed.",
+-- 	}
+
+	-- Define the configuration for the floating window
+-- 	local config = {
+-- 		relative = "editor",
+-- 		width = 40,
+-- 		height = 10,
+-- 		row = 5,
+-- 		col = 5,
+-- 		style = "minimal",
+-- 		border = {
+-- 			highlight = "FloatBorder",
+-- 			text = {
+-- 				top_left = "┌",
+-- 				top = "─",
+-- 				top_right = "┐",
+-- 				left = "│",
+-- 				right = "│",
+-- 				bottom_left = "└",
+-- 				bottom = "─",
+-- 				bottom_right = "┘",
+-- 			},
+-- 		},
+-- 	}
+-- 
+	-- Create the floating window
+-- 	local win = floating(content, config)
+
+	-- Add a border to the floating window
+-- 	border(win, config)
+-- end
