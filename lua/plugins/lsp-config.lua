@@ -19,13 +19,22 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local lspconf = require("lspconfig")
+			local lspconf, util = require("lspconfig"), require("lspconfig/util")
 			lspconf.lua_ls.setup({
 				capabilities = capabilities,
 			})
 
 			lspconf.rust_analyzer.setup({
 				capabilities = capabilities,
+				filetypes = { "rust" },
+				root_dir = util.root_pattern("Cargo.toml"),
+				setting = {
+					["rust_analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+					},
+				},
 			})
 
 			lspconf.tsserver.setup({
