@@ -3,7 +3,7 @@ return {
 		"simrat39/rust-tools.nvim",
 		config = function()
 			local rt = require("rust-tools")
-			local mason_reg = require("mason_registry")
+			local mason_reg = require("mason-registry")
 
 			local codelldb = mason_reg.get_package("codelldb")
 			local extension_path = codelldb:get_install_path() .. "/extensions/"
