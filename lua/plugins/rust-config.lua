@@ -30,4 +30,7 @@ return {
 			})
 		end,
 	},
+	{
+		"saecki/crates.nvim",
+	},
 }
