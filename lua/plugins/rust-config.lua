@@ -32,5 +32,13 @@ return {
 	},
 	{
 		"saecki/crates.nvim",
+		ft = { "toml", "rust" },
+		config = function()
+			local crates = require("crates")
+			crates.setup({})
+			crates.show()
+
+			vim.keymaps.set("n", "<leader>cu", crates.upgrade_all_crates)
+		end,
 	},
 }
