@@ -3,6 +3,4 @@ return {
 	"rust_analyzer",
 	"tsserver",
 	"clangd",
-	"codelldb",
-	"codespell",
 }

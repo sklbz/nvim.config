@@ -1,3 +1,3 @@
-require("config.lazypath")
+require("config.lazy_")
 require("config.vim-options")
 require("lazy").setup("plugins")
