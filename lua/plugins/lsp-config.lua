@@ -27,7 +27,7 @@ return {
 
 			lspconf.rust_analyzer.setup({
 				capabilities = capabilities,
-				setting = {
+				settings = {
 					["rust_analyzer"] = {
 						cargo = {
 							allFeatures = true,
