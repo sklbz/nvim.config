@@ -6,4 +6,6 @@ return {
 	"codespell",
 	"codelldb",
 	"stylua",
+	"shfmt",
+	"bashls",
 }

@@ -40,6 +40,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconf.bashls.setup({
+				capabilities = capabilities,
+			})
+
 			require("plugins.config.lsp.keymaps")
 		end,
 	},
