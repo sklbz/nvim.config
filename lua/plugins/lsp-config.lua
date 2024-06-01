@@ -8,11 +8,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = require("plugins.config.lsp.ensure-installed"),
-			})
-		end,
+		opts = {},
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -46,5 +42,12 @@ return {
 
 			require("plugins.config.lsp.keymaps")
 		end,
+	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
+			auto_update = true,
+			ensure_installed = require("plugins.config.lsp.ensure-installed"),
+		},
 	},
 }
