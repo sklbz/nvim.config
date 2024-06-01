@@ -12,15 +12,10 @@ return {
 
 			rt.setup({
 				dap = {
-
 					adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
 				},
 				server = {
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
-					on_attach = function(_, bufnr)
-						vim.keymaps.set("n", "<leader>k", rt.hover_action.hover_action, { buffer = bufnr })
-						vim.keymaps.set("n", "<leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-					end,
 				},
 				tools = {
 					hover_actions = {
@@ -38,7 +33,7 @@ return {
 			crates.setup({})
 			crates.show()
 
-			vim.keymaps.set("n", "<leader>cu", crates.upgrade_all_crates)
+			vim.keymap.set("n", "<leader>cu", crates.upgrade_all_crates)
 		end,
 	},
 }
