@@ -6,12 +6,24 @@ vim.opt.number = true
 vim.opt.syntax = "on"
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.clipboard = "unnamedplus"
+
+-- Highlight search
+vim.opt.hlsearch = true
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+
+-- Move text up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+require("config.term_")
 
 -- Test floating window
 -- local win = require("core.floating-window")
