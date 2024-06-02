@@ -7,6 +7,10 @@ return {
 			icon_only = true,
 		},
 		{
+			"filename",
+			newfile_status = true,
+		},
+		{
 			"buffers",
 			icons_enabled = false,
 		},
