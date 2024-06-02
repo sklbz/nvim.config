@@ -1,13 +1,17 @@
 return {
-	lualine_a = {
+	lualine_a = { { "mode" } },
+	lualine_b = { "branch", "diff", "diagnostics" },
+	lualine_c = {
 		{
-			"mode",
-			icon = [[]],
+			"filetype",
+			icon_only = true,
+		},
+		{
+			"buffers",
+			icons_enabled = false,
 		},
 	},
-	lualine_b = { "branch", "diff", "diagnostics" },
-	lualine_c = { "filetype", "filename" },
-	lualine_x = { "encoding", "fileformat", "filetype" },
+	lualine_x = { "fileformat" },
 	lualine_y = { "progress" },
 	lualine_z = { "location" },
 }
