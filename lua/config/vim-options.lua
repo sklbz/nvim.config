@@ -25,6 +25,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 require("config.term_")
 
--- Test floating window
--- local win = require("core.floating-window")
--- vim.keymap.set("n", "<leader>w", win)
+-- Define how new splits open
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10
