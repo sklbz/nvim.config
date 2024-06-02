@@ -18,19 +18,15 @@ return {
 			end,
 		},
 	},
-	config = function()
-		require("telescope").setup({
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
-				},
+	opts = {
+		extensions = {
+			["ui-select"] = {
+				require("telescope.themes").get_dropdown({}),
 			},
-		})
+		},
+	},
 
-		-- Enable Telescope extensions if they are installed
-		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("ui-select")
-
+	config = function()
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
@@ -50,5 +46,8 @@ return {
 				previewer = false,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
+
+		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("ui-select")
 	end,
 }
