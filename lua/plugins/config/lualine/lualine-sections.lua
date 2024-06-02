@@ -5,14 +5,20 @@ return {
 		{
 			"filetype",
 			icon_only = true,
+			padding = { left = 1, right = 0 },
 		},
 		{
 			"filename",
 			newfile_status = true,
 			fmt = function(str)
-				local pattern = "a"
+				local pattern = "%["
+				local index = str:find(pattern)
 
-				return str:sub(str:find(pattern), -1)
+				if not index then
+					return ""
+				end
+
+				return str:sub(index, -1)
 			end,
 		},
 		{
