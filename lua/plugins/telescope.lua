@@ -26,6 +26,11 @@ return {
 				},
 			},
 		})
+
+		-- Enable Telescope extensions if they are installed
+		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("ui-select")
+
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
@@ -38,6 +43,12 @@ return {
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
-		require("telescope").load_extension("ui-select")
+		vim.keymap.set("n", "<leader>/", function()
+			-- You can pass additional configuration to Telescope to change the theme, layout, etc.
+			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				winblend = 10,
+				previewer = false,
+			}))
+		end, { desc = "[/] Fuzzily search in current buffer" })
 	end,
 }
