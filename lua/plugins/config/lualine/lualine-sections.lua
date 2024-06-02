@@ -9,6 +9,11 @@ return {
 		{
 			"filename",
 			newfile_status = true,
+			fmt = function(str)
+				local pattern = "a"
+
+				return str:sub(str:find(pattern), -1)
+			end,
 		},
 		{
 			"buffers",
