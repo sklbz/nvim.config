@@ -33,8 +33,8 @@ return {
 			crates.setup({})
 			crates.show()
 
-			vim.keymap.set("n", "<leader>ruc", crates.upgrade_all_crates, { desc = "[U]pgrade [A]ll [C]rates" })
-			vim.keymap.set("n", "<leader>rt", '<cmd>echo "test:<CR>', { desc = "TEST" })
+			vim.keymap.set("n", "<leader>uc", crates.upgrade_all_crates, { desc = "[U]pgrade [C]rates" })
+			vim.keymap.set("n", "<leader>u.", crates.upgrade_crate, { desc = '[u]pgrade crate ("." for single crate)' })
 		end,
 	},
 }
