@@ -44,6 +44,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconf.dcmls.setup({
+				capabilities = capabilities,
+			})
+
 			require("plugins.config.lsp.keymaps")
 		end,
 	},

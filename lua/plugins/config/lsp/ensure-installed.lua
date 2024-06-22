@@ -3,6 +3,7 @@ return {
 	"rust_analyzer",
 	"tsserver",
 	"clangd",
+	"dcm",
 	"codespell",
 	"codelldb",
 	"stylua",
