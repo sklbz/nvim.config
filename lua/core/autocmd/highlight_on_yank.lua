@@ -1,4 +1,4 @@
-vim.api.nvim_set_hl(0, "yankHighlight", { fg = "#ffffff", bg = "#f38ba8" })
+vim.api.nvim_set_hl(0, "yankHighlight", { fg = "#1e1e2e", bg = "#89b4fa" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",
