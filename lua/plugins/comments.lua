@@ -1,7 +1,7 @@
 return {
 	{
 		"numToStr/Comment.nvim",
-		opt = {},
+		opts = {},
 	},
 	{
 		"folke/todo-comments.nvim",
