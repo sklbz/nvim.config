@@ -32,7 +32,7 @@ return {
 				},
 			})
 
-			lspconf.tsserver.setup({
+			lspconf.ts_ls.setup({
 				capabilities = capabilities,
 			})
 

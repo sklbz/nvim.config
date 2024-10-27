@@ -1,0 +1,5 @@
+return {
+	"dcm",
+	"shfmt",
+	"stylua",
+}
