@@ -9,20 +9,46 @@ return {
 			local extension_path = codelldb:get_install_path() .. "/extensions/"
 			local codelldb_path = extension_path .. "adapter/codelldb"
 			local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+			local dap_adapter = rt.dap.get_codelldb_adapter(codelldb_path, liblldb_path)
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			rt.setup({
+			local tools = {
+				runnables = {
+					use_telescope = true,
+				},
+				hover_actions = {
+					auto_focus = true,
+				},
+			}
+			local inlay_hints = {
+				auto = true,
+				only_current_line = false,
+				show_parameter_hints = false,
+				-- parameter_hints_prefix = "",
+				-- other_hints_prefix = "",
+				max_len = 100,
+				prefix = " ",
+			}
+
+			local opts = {
 				dap = {
-					adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+					adapter = dap_adapter,
 				},
 				server = {
-					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+					capabilities = capabilities,
 				},
-				tools = {
-					hover_actions = {
-						auto_focus = true,
-					},
-				},
-			})
+				tools = tools,
+				inlay_hints = inlay_hints,
+			}
+
+			rt.setup(opts)
+
+			vim.keymap.set(
+				"n",
+				"<leader>cag",
+				rt.code_action_group.code_action_group,
+				{ desc = "[C]ode [A]ction [G]roup" }
+			)
 		end,
 	},
 	{
