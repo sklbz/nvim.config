@@ -24,10 +24,10 @@ return {
 				auto = true,
 				only_current_line = false,
 				show_parameter_hints = false,
-				-- parameter_hints_prefix = "",
-				-- other_hints_prefix = "",
+				parameter_hints_prefix = "",
+				other_hints_prefix = "",
 				max_len = 100,
-				prefix = " ",
+				-- prefix = " ",
 			}
 
 			local opts = {
@@ -42,13 +42,6 @@ return {
 			}
 
 			rt.setup(opts)
-
-			vim.keymap.set(
-				"n",
-				"<leader>cag",
-				rt.code_action_group.code_action_group,
-				{ desc = "[C]ode [A]ction [G]roup" }
-			)
 		end,
 	},
 	{
