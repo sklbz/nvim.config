@@ -3,8 +3,6 @@ return {
 	event = "BufReadPost",
 	config = function()
 		local ibl = require("ibl")
-		ibl.setup({
-			show_current_context = true,
-		})
+		ibl.setup({})
 	end,
 }
