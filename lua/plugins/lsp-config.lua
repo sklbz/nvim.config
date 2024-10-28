@@ -1,3 +1,8 @@
+local ensure_installed = require("plugins.config.lsp.ensure-installed"),
+for _, lsp in ipairs(ensure_installed) do
+	print(lsp)
+end
+
 return {
 	{
 		"williamboman/mason.nvim",
@@ -13,23 +18,23 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
-		opts = {
-			tools = {
-				runnables = {
-					use_telescope = true,
-				},
-				inlay_hints = {
-					auto = true,
-					only_current_line = false,
-					show_parameter_hints = false,
+		opts = {},
+		-- opts = {
+			-- tools = {
+				-- runnables = {
+					-- use_telescope = true,
+				-- },
+				-- inlay_hints = {
+					-- auto = true,
+					-- only_current_line = false,
+					-- show_parameter_hints = false,
 					-- parameter_hints_prefix = "",
 					-- other_hints_prefix = "",
-					max_len = 100,
-					prefix = " ",
-				},
-			},
-		},
-	},
+					-- max_len = 100,
+					-- prefix = " ",
+				-- },
+			-- },
+		-- },
 	config = function()
 		local lspconf = require("lspconfig")
 
@@ -37,10 +42,14 @@ return {
 
 		local lsp_list = require("plugins.config.lsp.lsp-list")
 
+		local lsp_settings = {
+			rust = require("plugins.config.lsp.rust-analyzer-opts"),
+		}
+
 		for _, lsp in ipairs(lsp_list) do
 			local suffix = lsp == "dcm" and "ls" or ""
 
-			local opts = lsp == "rust_analyzer" and require("plugins.config.lsp.rust-analyzer-opts") or {}
+			local opts = lsp == "rust_analyzer" and lsp_settings.rust or {}
 
 			lspconf[lsp .. suffix].setup({
 				capabilities = capabilities,
@@ -61,10 +70,12 @@ return {
 
 		require("plugins.config.lsp.keymaps")
 	end,
-}, {
+},
+	{
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	opts = {
 		auto_update = true,
 		ensure_installed = require("plugins.config.lsp.ensure-installed"),
 	},
+}
 }
