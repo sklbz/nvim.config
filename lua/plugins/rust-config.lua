@@ -9,7 +9,7 @@ return {
 			local extension_path = codelldb:get_install_path() .. "/extensions/"
 			local codelldb_path = extension_path .. "adapter/codelldb"
 			local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
-			local dap_adapter = rt.dap.get_codelldb_adapter(codelldb_path, liblldb_path)
+			local dap_adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local tools = {
