@@ -1,6 +1,6 @@
 return {
 	lualine_a = { "mode" },
-	lualine_b = { "branch", "diff",
+	lualine_b = { "diff",
 		{
 			"diagnostics",
 			symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -17,7 +17,28 @@ return {
 			icons_enabled = false,
 		},
 	},
-	lualine_x = {},
+	lualine_x = {
+		{
+			-- Lsp server name
+			function()
+				local msg = 'No Active Lsp'
+				local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+				local clients = vim.lsp.get_clients()
+				if next(clients) == nil then
+					return msg
+				end
+				for _, client in ipairs(clients) do
+					local filetypes = client.config.filetypes
+					if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+						return client.name
+					end
+				end
+				return msg
+			end,
+			icon = ' LSP:',
+			color = { fg = '#ffffff', gui = 'bold' },
+		}
+	},
 	lualine_y = {},
 	lualine_z = {}
 	-- lualine_x = { "fileformat" },
