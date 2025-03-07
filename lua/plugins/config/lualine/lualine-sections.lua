@@ -1,5 +1,51 @@
 return {
-	lualine_a = { "mode" },
+	lualine_a = {
+		{
+			function()
+				return '▊'
+			end,
+			color = { fg = '#b4befe', bg = "#45475a" },
+			padding = { left = 0, right = 0 }
+		},
+		{
+			"mode",
+			color = function()
+				-- auto change color according to neovims mode
+				local mode_color = {
+					n = "#89b4fa",
+					i = "#a6e3a1",
+					v = "#cba6f7",
+					-- [''] = colors.blue,
+					V = "#cba6f7",
+					c = "#fab387",
+					-- no = colors.red,
+					-- s = colors.orange,
+					-- S = colors.orange,
+					-- [''] = colors.orange,
+					-- ic = colors.yellow,
+					-- R = colors.violet,
+					-- Rv = colors.violet,
+					-- cv = colors.red,
+					-- ce = colors.red,
+					-- r = colors.cyan,
+					-- rm = colors.cyan,
+					-- ['r?'] = colors.cyan,
+					-- ['!'] = colors.red,
+					-- t = colors.red,
+				}
+				return { fg = mode_color[vim.fn.mode()], bg = "#45475a" }
+			end,
+
+		},
+
+		{
+			function()
+				return ''
+			end,
+			padding = { left = 0, right = 0 },
+			color = { fg = "#45475a", bg = "#313244" }
+		}
+	},
 	lualine_b = { "diff",
 		{
 			"diagnostics",
@@ -36,12 +82,36 @@ return {
 				return msg
 			end,
 			icon = ' LSP:',
-			color = { fg = "#94e2d5", gui = 'bold' },
-		}
+
+			color = function()
+				-- auto change color according to neovims mode
+				local mode_color = {
+					n = "#74c7ec",
+					i = "#94e2d5",
+					v = "#cba6f7",
+					-- [''] = colors.blue,
+					V = "#cba6f7",
+					c = "#fab387",
+					-- no = colors.red,
+					-- s = colors.orange,
+					-- S = colors.orange,
+					-- [''] = colors.orange,
+					-- ic = colors.yellow,
+					-- R = colors.violet,
+					-- Rv = colors.violet,
+					-- cv = colors.red,
+					-- ce = colors.red,
+					-- r = colors.cyan,
+					-- rm = colors.cyan,
+					-- ['r?'] = colors.cyan,
+					-- ['!'] = colors.red,
+					-- t = colors.red,
+				}
+				return { fg = mode_color[vim.fn.mode()] }
+			end,
+
+		},
 	},
 	lualine_y = {},
 	lualine_z = {}
-	-- lualine_x = { "fileformat" },
-	-- lualine_y = { "progress" },
-	-- lualine_z = { "location" },
 }
