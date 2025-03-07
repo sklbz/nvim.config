@@ -13,6 +13,6 @@ return {
 		},
 	},
 	lualine_x = { "fileformat" },
-	lualine_y = { "progress" },
-	lualine_z = { "location" },
+	-- lualine_y = { "progress" },
+	-- lualine_z = { "location" },
 }
