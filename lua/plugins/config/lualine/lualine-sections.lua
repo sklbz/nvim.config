@@ -36,7 +36,7 @@ return {
 				return msg
 			end,
 			icon = ' LSP:',
-			color = { fg = '#ffffff', gui = 'bold' },
+			color = { fg = "#94e2d5", gui = 'bold' },
 		}
 	},
 	lualine_y = {},
