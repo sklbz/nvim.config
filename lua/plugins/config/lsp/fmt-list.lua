@@ -3,4 +3,5 @@ return {
 	"dcm",
 	"shfmt",
 	"stylua",
+	"yamlfmt",
 }

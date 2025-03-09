@@ -27,7 +27,10 @@ return {
 			for _, lsp in ipairs(lsp_list) do
 				local suffix = lsp == "dcm" and "ls" or ""
 
-				local opts = lsp == "rust_analyzer" and lsp_settings.rust or {}
+				-- local opts = lsp == "rust_analyzer" and lsp_settings.rust or {}
+				if lsp == "rust_analyzer" then
+					break
+				end
 
 				lspconf[lsp .. suffix].setup({
 					capabilities = capabilities,
