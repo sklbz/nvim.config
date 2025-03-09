@@ -1,13 +1,6 @@
 return {
 	lualine_a = {
 		{
-			function()
-				return '▊'
-			end,
-			color = { fg = '#b4befe', bg = "#45475a" },
-			padding = { left = 0, right = 0 }
-		},
-		{
 			"mode",
 			color = function()
 				-- auto change color according to neovims mode
@@ -23,7 +16,7 @@ return {
 					-- S = colors.orange,
 					-- [''] = colors.orange,
 					-- ic = colors.yellow,
-					-- R = colors.violet,
+					R = "#f38ba8",
 					-- Rv = colors.violet,
 					-- cv = colors.red,
 					-- ce = colors.red,
@@ -31,22 +24,19 @@ return {
 					-- rm = colors.cyan,
 					-- ['r?'] = colors.cyan,
 					-- ['!'] = colors.red,
-					-- t = colors.red,
+					t = "#a6e3a1",
 				}
-				return { fg = mode_color[vim.fn.mode()], bg = "#45475a" }
+				return {
+					fg = mode_color[vim.fn.mode()],
+					gui = "bold",
+					bg = ""
+				}
 			end,
 
 		},
-
-		{
-			function()
-				return ''
-			end,
-			padding = { left = 0, right = 0 },
-			color = { fg = "#45475a", bg = "#313244" }
-		}
 	},
-	lualine_b = { "diff",
+	lualine_b = {
+		"diff",
 		{
 			"diagnostics",
 			symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -107,7 +97,7 @@ return {
 					-- ['!'] = colors.red,
 					-- t = colors.red,
 				}
-				return { fg = mode_color[vim.fn.mode()] }
+				return { fg = mode_color[vim.fn.mode()], gui = "bold" }
 			end,
 
 		},
